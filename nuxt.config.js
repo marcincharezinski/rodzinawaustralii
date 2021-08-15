@@ -32,8 +32,7 @@ export default {
     // https://go.nuxtjs.dev/typescript
     '@nuxt/typescript-build',
     // https://go.nuxtjs.dev/stylelint
-    '@nuxtjs/stylelint-module',
-    '@nuxtjs/sanity/module'
+    '@nuxtjs/stylelint-module'
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -61,5 +60,11 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+    babel: {
+      plugins: [
+        // to remove buggy message when build
+        ['@babel/plugin-proposal-private-property-in-object', { loose: true }]
+      ],
+    },
   }
 }
